@@ -6,6 +6,7 @@ import styled from "styled-components";
 import CustomSelect from "components/Dropdown/CustomSelect";
 import CustomOption from "components/CustomOption/CustomOption";
 import FilterWrapper from "components/FilterWrapper/FilterWrapper";
+import ProductCard from "components/ProductCard/ProductCard";
 
 const MyDiv = styled.div`
   color: #381E23;
@@ -24,7 +25,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FilterWrapper />
-      
+      <ProductCard />
     </div>
   );
 };
