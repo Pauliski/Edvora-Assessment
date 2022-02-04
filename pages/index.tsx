@@ -7,6 +7,9 @@ import CustomSelect from "components/Dropdown/CustomSelect";
 import CustomOption from "components/CustomOption/CustomOption";
 import FilterWrapper from "components/FilterWrapper/FilterWrapper";
 import ProductCard from "components/ProductCard/ProductCard";
+import AllProduct from "components/AllProduct/AllProduct";
+import GroupProduct from "components/GroupProduct/GroupProduct";
+import App from "components/App/App";
 
 const MyDiv = styled.div`
   color: #381E23;
@@ -24,8 +27,9 @@ const Home: NextPage = () => {
         <meta name="description" content="Created by Paul Arokoola" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <FilterWrapper />
-      <ProductCard />
+      <App />
+      
+      
     </div>
   );
 };

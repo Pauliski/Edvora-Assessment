@@ -2,18 +2,20 @@ import styled from "styled-components";
 
 export const ProductCardWraapper = styled.div`
   @media only screen and (min-width: 1366px) {
-    width: 13.125rem;
-    height: 9.375rem;
+    min-width: 13.125rem;
+    min-height: 9.375rem;
     background-color: #232323;
     border-radius: 0.292984rem;
-    margin: 20px;
-    padding: 0.625rem 0.9375rem 0.875rem 0.75rem;
+    margin-right: 20px;
+    padding: 0.625rem 0.8125rem 0.875rem 0.75rem;
   }
 `;
 
 export const ProductCardFirstSection = styled.div`
   @media only screen and (min-width: 1366px) {
     display: flex;
+    /* justify-content: space-between; */
+    /* width: 100%; */
   }
 `;
 
@@ -22,8 +24,6 @@ export const ProductCardImageContainer = styled.div`
     width: 4.375rem;
     height: 4.375rem;
     border-radius: 0.3125rem;
-
-    background-color: green;
   }
 `;
 export const ProductCardImage = styled.img`
@@ -40,7 +40,7 @@ export const ProductCardNameSection = styled.div`
 `;
 export const ProductCardProductName = styled.h3`
   @media only screen and (min-width: 1366px) {
-    width: 5.8125rem;
+    /* width: 5.8125rem; */
     font-size: 0.9375rem;
     line-height: 1.2;
     color: #ffffff;
@@ -48,7 +48,7 @@ export const ProductCardProductName = styled.h3`
 `;
 export const ProductCardBrandName = styled.h3`
   @media only screen and (min-width: 1366px) {
-    width: 5.6875rem;
+    /* width: 5.6875rem; */
     font-size: 0.8125rem;
     line-height: 1.23077;
     margin-top: 0.625rem;
@@ -57,8 +57,8 @@ export const ProductCardBrandName = styled.h3`
 `;
 export const ProductCardProductPrice = styled.h3`
   @media only screen and (min-width: 1366px) {
-    width: 5.8125rem;
-    height: 1;
+    /* width: 5.8125rem; */
+    /* height: 1; */
     font-size: 0.8125rem;
     line-height: 1.23077;
     color: #ffffff;
@@ -75,12 +75,11 @@ export const ProductCardProductLocationContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
   }
 `;
 export const ProductCardProductLocation = styled.h3`
   @media only screen and (min-width: 1366px) {
-    /* width: 5.625rem; */
-    height: 0.875rem;
     font-size: 0.8125rem;
     color: rgba(255, 255, 255, 0.6);
   }

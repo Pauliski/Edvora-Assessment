@@ -31,30 +31,48 @@ const product = {
     "https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png",
 };
 
-const ProductCard = () => {
+interface productProps  {
+  product_name: string;
+  brand_name: string;
+  price: number;
+  address: {
+    state: string;
+    city: string;
+  };
+  discription: string;
+  date: string;
+  time: string;
+  image: string;
+};
+
+type ProductCardProps = {
+  eachProduct: productProps
+}
+
+const ProductCard = ({eachProduct}: ProductCardProps) => {
   return (
     <ProductCardWraapper>
       <ProductCardFirstSection>
         <ProductCardImageContainer>
-          <ProductCardImage src={product.image} />
+          <ProductCardImage src={eachProduct.image} />
         </ProductCardImageContainer>
         <ProductCardNameSection>
           <ProductCardProductName>
-            {product.product_name}
+            {eachProduct.product_name}
           </ProductCardProductName>
-          <ProductCardBrandName>{product.brand_name}</ProductCardBrandName>
-          <ProductCardProductPrice>$ {product.price}</ProductCardProductPrice>
+          <ProductCardBrandName>{eachProduct.brand_name}</ProductCardBrandName>
+          <ProductCardProductPrice>$ {eachProduct.price}</ProductCardProductPrice>
         </ProductCardNameSection>
       </ProductCardFirstSection>
       <ProductCardSecondSection>
         <ProductCardProductLocationContainer>
           <ProductCardProductLocation>
-            {product.address.city}, {product.address.state}
+            {eachProduct.address.state}
           </ProductCardProductLocation>
-          <ProductCardProductDate><Moment format="DD:MM:YY">{product.date}</Moment></ProductCardProductDate>
+          <ProductCardProductDate><Moment format="DD:MM:YY">{eachProduct.date}</Moment></ProductCardProductDate>
         </ProductCardProductLocationContainer>
 
-        <ProductCardProductDescription>{product.discription}</ProductCardProductDescription>
+        <ProductCardProductDescription>{eachProduct.discription}</ProductCardProductDescription>
       </ProductCardSecondSection>
     </ProductCardWraapper>
   );
