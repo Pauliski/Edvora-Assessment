@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'SF Pro';
+  src: url('/public/asset/SF/SF\ Pro\ Fonts.pkg');
+  /* src: url('/public/asset/SF\ Pro/'); */
+  font-weight: 400;
+  font-style: normal;
+  }
+
 *,
 *::after,
 *::before {
@@ -13,4 +21,10 @@ html {
 body {
   font-size: 16px;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #292929;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  /* font-family: 'SF Pro'; */
 }
