@@ -1,12 +1,13 @@
 import GroupProduct from "components/GroupProduct/GroupProduct";
 import React from "react";
-import { AppWrapper } from "./style";
+// import { AppWrapper } from "./style";
 
 const App = () => {
   return (
-    <AppWrapper>
-      <GroupProduct />
-    </AppWrapper>
+    <></>
+    // <AppWrapper>
+    //   <GroupProduct />
+    // </AppWrapper>
   );
 };
 

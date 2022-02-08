@@ -10,16 +10,38 @@ import ProductCard from "components/ProductCard/ProductCard";
 import AllProduct from "components/AllProduct/AllProduct";
 import GroupProduct from "components/GroupProduct/GroupProduct";
 import App from "components/App/App";
+import axios from "axios";
 
-const MyDiv = styled.div`
-  color: #381E23;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  font-size: 50px;
-`;
+export const getStaticProps = async () => {
+  const res = await axios.get("https://assessment-edvora.herokuapp.com/");
+  // const dataa = await res.json()
+  return {
+    props: {
+      productArr: res.data,
+    },
+  };
+  // const data = await res.json();
+};
 
-const arr = ['Adebola', 'Peter']
+interface productProps {
+  product_name: string;
+  brand_name: string;
+  price: number;
+  address: {
+    state: string;
+    city: string;
+  };
+  discription: string;
+  date: string;
+  time: string;
+  image: string;
+}
 
-const Home: NextPage = () => {
+interface productArrProps {
+  productArr: productProps[]
+}
+
+const Home: NextPage = ({ productArr }: any ) => {
   return (
     <div>
       <Head>
@@ -28,11 +50,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <App />
+        <GroupProduct productArr={productArr} />
       </div>
-      
-      
-      
     </div>
   );
 };

@@ -7,8 +7,8 @@ type CustomOptionProps = {
 const CustomOption = ({ optionData }: CustomOptionProps): JSX.Element => {
   return (
     <>
-      {optionData.map((item) => (
-        <option>{item}</option>
+      {optionData.map((item, i) => (
+        <option key={i}>{item}</option>
       ))}
     </>
   );

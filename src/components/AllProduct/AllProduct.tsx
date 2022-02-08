@@ -22,8 +22,8 @@ type ProductProps = {
 const AllProduct = ({ data }: ProductProps) => {
   return (
     <>
-      {data.map((product) => (
-        <ProductCard eachProduct={product} />
+      {data.map((product, i) => (
+        <ProductCard eachProduct={product} key={i}/>
       ))}
     </>
   );
