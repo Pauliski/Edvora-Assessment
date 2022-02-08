@@ -41,7 +41,7 @@ interface productArrProps {
   productArr: productProps[]
 }
 
-const Home: NextPage = ({ productArr } ) => {
+const Home: NextPage = ({ productArr }: any ) => {
   return (
     <div>
       <Head>
