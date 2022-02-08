@@ -12,7 +12,7 @@ const RightArrow = () => {
       <path
         d="M1 1L11 17.5L1 34"
         stroke="white"
-        stroke-width="2"
+        strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
