@@ -33,37 +33,7 @@ interface productArrProps {
 }
 
 const Home: NextPage = ({ productArr }: any) => {
-  const [filterValue, setFilterValue] = useState({
-    product_name: "",
-    state: "",
-    city: "",
-  });
-  const allProduct = productArr
   const [displayProduct, setDisplayProduct] = useState(productArr);
-  const handleFilter = (filterBy) => {
-    setFilterValue((prev) => ({ ...prev, ...filterBy }));
-  };
-  useEffect(() => {
-    setFilterValue(filterValue);
-    console.log(filterValue);
-    
-    if (filterValue.product_name) {
-      const productFilter = displayProduct.filter(
-        (x) => x.product_name === filterValue.product_name
-      );
-      setDisplayProduct(productFilter);
-    } else if (filterValue.state) {
-      const productFilter = displayProduct.filter(
-        (x) => x.address.state === filterValue.state
-      );
-      setDisplayProduct(productFilter);
-    } else if (filterValue.city) {
-      const productFilter = displayProduct.filter(
-        (x) => x.address.city === filterValue.city
-      );
-      setDisplayProduct(productFilter);
-    }
-  }, [filterValue]);
 
   useEffect(() => {
     setDisplayProduct(displayProduct);
