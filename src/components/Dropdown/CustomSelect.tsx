@@ -4,14 +4,16 @@ import { Select, SelectOption, SelectWrapper } from "./style";
 
 type CustomSelectProps = {
   name: string;
+  displayName: string;
+  handleFilter: (filterProps: any)=>{};
   children: JSX.Element;
 };
 
 const CustomSelect = ({ name, displayName, handleFilter, children }: CustomSelectProps): JSX.Element => {
 
- const handleChange = (e)=>{
+ const handleChange = (e: any)=>{
    const {name, value} = e.target
-   const filterParams = {[name]: value}
+   const filterParams: any = {[name]: value}
   handleFilter(filterParams)
  }
   return (

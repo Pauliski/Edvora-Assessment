@@ -25,11 +25,29 @@ interface productProps {
   image: string;
 }
 
+type ProductsProps = {
+  product_name: string;
+  brand_name: string;
+  price: number;
+  discription: string;
+  date: string;
+  time: string;
+  image: string;
+  address: {
+    state: string;
+    city: string;
+  };
+};
+type ProductDetailsProps ={
+  productDetails: any;
+  product_name: any
+}
+
 const GroupProduct = ({ productArr }: any) => {
   const [products, setProducts] = useState([]);
   const [stateArray, setStateArray] = useState([]);
   const [cityeArray, setCityArray] = useState([]);
-  const [sortedProduct, setSortedProduct] = useState([]);
+  const [sortedProduct, setSortedProduct]: any[] = useState([]);
   const [productArray, setProductArray] = useState(productArr);
   let allCompanyArray = [];
   const [filterValue, setFilterValue] = useState({
@@ -38,7 +56,7 @@ const GroupProduct = ({ productArr }: any) => {
     city: "",
   });
   const [displayProduct, setDisplayProduct] = useState(productArr);
-  const handleFilter = (filterBy) => {
+  const handleFilter = (filterBy: any) => {
     setFilterValue((prev) => ({ ...prev, ...filterBy }));
   };
 
@@ -47,19 +65,19 @@ const GroupProduct = ({ productArr }: any) => {
 
     if (filterValue.product_name) {
       const productFilter = productArray.filter(
-        (x) => x.product_name === filterValue.product_name
+        (x: any) => x.product_name === filterValue.product_name
       );
       setProductArray(productFilter);
     }
     if (filterValue.state) {
       const productFilter = productArray.filter(
-        (x) => x.address.state === filterValue.state
+        (x: any) => x.address.state === filterValue.state
       );
       setProductArray(productFilter);
     }
     if (filterValue.city) {
       const productFilter = productArray.filter(
-        (x) => x.address.city === filterValue.city
+        (x: any) => x.address.city === filterValue.city
       );
       setProductArray(productFilter);
     }
@@ -68,7 +86,7 @@ const GroupProduct = ({ productArr }: any) => {
   useEffect(() => {
     const productNameArray = productArray.reduce(
       (
-        a,
+        a: any,
         {
           product_name,
           brand_name,
@@ -79,7 +97,7 @@ const GroupProduct = ({ productArr }: any) => {
           image,
           address: { state },
           address: { city },
-        }
+        }: ProductsProps
       ) => {
         const obj = a.get(product_name) || { product_name, productDetails: [] };
         obj.productDetails.push({
@@ -97,7 +115,6 @@ const GroupProduct = ({ productArr }: any) => {
       },
       new Map()
     );
-    console.log(...productNameArray.values());
     setSortedProduct([...productNameArray.values()]);
     const allProductState: any = Array.from(
       new Set(productArray.map((item: productProps) => item.address.state))
@@ -151,7 +168,7 @@ const GroupProduct = ({ productArr }: any) => {
           {sortedProduct.length !== 0 ? (
             <>
               {sortedProduct.map(
-                ({ productDetails, product_name }: productProps[], i) => {
+                ({ productDetails, product_name }: ProductDetailsProps, i: any) => {
                   return (
                     <ProductName key={i} product={product_name}>
                       <ProductSection data={productDetails} />

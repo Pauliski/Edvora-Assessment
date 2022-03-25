@@ -9,6 +9,7 @@ type FilterWrapperProps = {
   states: string[];
   products: string[];
   city: string[];
+  handleFilter: any
 };
 const FilterWrapper = ({
   states,
