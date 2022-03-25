@@ -16,7 +16,6 @@ import {
   ProductCardWraapper,
 } from "./style";
 
-
 interface productProps {
   product_name: string;
   brand_name: string;
@@ -55,7 +54,7 @@ const ProductCard = ({ eachProduct }: ProductCardProps) => {
       <ProductCardSecondSection>
         <ProductCardProductLocationContainer>
           <ProductCardProductLocation>
-            {eachProduct.address.state}
+            {eachProduct.city}, {eachProduct.state}
           </ProductCardProductLocation>
           <ProductCardProductDate>
             <Moment format="DD:MM:YYYY">{eachProduct.date}</Moment>

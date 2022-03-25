@@ -13,7 +13,8 @@ export const ProductCardWraapper = styled.div`
     /* display: flex; */
   }
   @media only screen and (min-width: 1001px) {
-    min-width: 13.125rem;
+    min-width: 20rem;
+    max-width: 22rem;
     margin-right: 20px;
     margin-bottom: 0;
     /* min-height: 9.375rem; */
@@ -74,11 +75,12 @@ export const ProductCardSecondSection = styled.div`
 export const ProductCardProductLocationContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
 `;
 export const ProductCardProductLocation = styled.h3`
   font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.6);
+  max-width: 70%;
 `;
 export const ProductCardProductDate = styled.h3`
   height: 0.875rem;
@@ -86,6 +88,7 @@ export const ProductCardProductDate = styled.h3`
   font-size: 0.8125rem;
   line-height: 1.19308;
   color: rgba(255, 255, 255, 0.6);
+  margin-left: 0.625rem;
 `;
 export const ProductCardProductDescription = styled.h3`
   font-size: 0.6875rem;
