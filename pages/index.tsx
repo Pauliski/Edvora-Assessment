@@ -3,18 +3,15 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import GroupProduct from "components/GroupProduct/GroupProduct";
-import App from "components/App/App";
 import axios from "axios";
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await axios.get("https://assessment-edvora.herokuapp.com/");
-  // const dataa = await res.json()
   return {
     props: {
       productArr: res.data,
     },
   };
-  // const data = await res.json();
 };
 
 interface productProps {
@@ -72,7 +69,6 @@ const Home: NextPage = ({ productArr }: any) => {
     setDisplayProduct(displayProduct);
     console.log(displayProduct);
   }, [displayProduct]);
-
   return (
     <div>
       <Head>
