@@ -1,5 +1,5 @@
 import ProductCard from "components/ProductCard/ProductCard";
-import React from "react";
+import React, {useEffect, useState} from "react";
 
 interface productProps {
   product_name: string;
@@ -20,6 +20,10 @@ type ProductProps = {
 };
 
 const AllProduct = ({ data }: ProductProps) => {
+  const [returnData, setReturnData] = useState(data)
+  useEffect(()=>{
+setReturnData(returnData)
+  }, returnData)
   return (
     <>
       {data.map((product, i) => (

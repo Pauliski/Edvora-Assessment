@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "./style";
 import { Select, SelectOption, SelectWrapper } from "./style";
 
@@ -7,12 +7,18 @@ type CustomSelectProps = {
   children: JSX.Element;
 };
 
-const CustomSelect = ({ name, children }: CustomSelectProps): JSX.Element => {
+const CustomSelect = ({ name, displayName, handleFilter, children }: CustomSelectProps): JSX.Element => {
+
+ const handleChange = (e)=>{
+   const {name, value} = e.target
+   const filterParams = {[name]: value}
+  handleFilter(filterParams)
+ }
   return (
     <SelectWrapper>
-      <Select name={name}>
-        <SelectOption selected hidden disabled>
-          {name}
+      <Select name={name} onChange={(e)=>handleChange(e)}>
+        <SelectOption value={0} selected hidden disabled>
+          {displayName}
         </SelectOption>
         {children}
       </Select>

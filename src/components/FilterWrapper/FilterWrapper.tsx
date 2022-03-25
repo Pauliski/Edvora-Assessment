@@ -14,6 +14,7 @@ const FilterWrapper = ({
   states,
   products,
   city,
+  handleFilter
 }: FilterWrapperProps): JSX.Element => {
   return (
     <>
@@ -22,13 +23,13 @@ const FilterWrapper = ({
       </FilterWrapperCompanyName>
       <FilterWrapperStyle>
         <FilterText />
-        <CustomSelect name="Products">
+        <CustomSelect name="product_name" displayName="Products" handleFilter={handleFilter}>
           <CustomOption optionData={products} />
         </CustomSelect>
-        <CustomSelect name="State">
+        <CustomSelect name="state" displayName="State" handleFilter={handleFilter}>
           <CustomOption optionData={states} />
         </CustomSelect>
-        <CustomSelect name="City">
+        <CustomSelect name="city" displayName="City" handleFilter={handleFilter}>
           <CustomOption optionData={city} />
         </CustomSelect>
       </FilterWrapperStyle>

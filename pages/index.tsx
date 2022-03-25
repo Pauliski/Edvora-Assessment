@@ -1,13 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
-import styled from "styled-components";
-import CustomSelect from "components/Dropdown/CustomSelect";
-import CustomOption from "components/CustomOption/CustomOption";
-import FilterWrapper from "components/FilterWrapper/FilterWrapper";
-import ProductCard from "components/ProductCard/ProductCard";
-import AllProduct from "components/AllProduct/AllProduct";
+import React, { useEffect, useState } from "react";
 import GroupProduct from "components/GroupProduct/GroupProduct";
 import App from "components/App/App";
 import axios from "axios";
@@ -38,10 +32,47 @@ interface productProps {
 }
 
 interface productArrProps {
-  productArr: productProps[]
+  productArr: productProps[];
 }
 
-const Home: NextPage = ({ productArr }: any ) => {
+const Home: NextPage = ({ productArr }: any) => {
+  const [filterValue, setFilterValue] = useState({
+    product_name: "",
+    state: "",
+    city: "",
+  });
+  const allProduct = productArr
+  const [displayProduct, setDisplayProduct] = useState(productArr);
+  const handleFilter = (filterBy) => {
+    setFilterValue((prev) => ({ ...prev, ...filterBy }));
+  };
+  useEffect(() => {
+    setFilterValue(filterValue);
+    console.log(filterValue);
+    
+    if (filterValue.product_name) {
+      const productFilter = displayProduct.filter(
+        (x) => x.product_name === filterValue.product_name
+      );
+      setDisplayProduct(productFilter);
+    } else if (filterValue.state) {
+      const productFilter = displayProduct.filter(
+        (x) => x.address.state === filterValue.state
+      );
+      setDisplayProduct(productFilter);
+    } else if (filterValue.city) {
+      const productFilter = displayProduct.filter(
+        (x) => x.address.city === filterValue.city
+      );
+      setDisplayProduct(productFilter);
+    }
+  }, [filterValue]);
+
+  useEffect(() => {
+    setDisplayProduct(displayProduct);
+    console.log(displayProduct);
+  }, [displayProduct]);
+
   return (
     <div>
       <Head>
@@ -50,7 +81,7 @@ const Home: NextPage = ({ productArr }: any ) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <GroupProduct productArr={productArr} />
+        <GroupProduct productArr={displayProduct} />
       </div>
     </div>
   );
